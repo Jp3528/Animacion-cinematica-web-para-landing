@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEYOND MOTION | Experiencia Cinematográfica</title>
+    <meta name="description" content="BEYOND MOTION - Experiencia interactiva cinematográfica de scrollytelling de alto rendimiento a 60 FPS con secuencia WebP y diseño brutalista.">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="BEYOND MOTION | Experiencia Cinematográfica">
+    <meta property="og:description" content="Ingeniería más allá de los límites. Redefiniendo la velocidad con scrollytelling interactivo.">
+    <meta property="og:image" content="assets/images/showcase.webp">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BEYOND MOTION | Experiencia Cinematográfica">
+    <meta name="twitter:description" content="Ingeniería más allá de los límites. Redefiniendo la velocidad.">
+    <meta name="twitter:image" content="assets/images/showcase.webp">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000000'/%3E%3Cpolygon points='6,24 16,6 26,24 20,24 16,14 12,24' fill='%23ffc000'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dark-theme">
+
+    <header id="main-header">
+        <div class="header-container">
+            <div class="header-left">
+                <button type="button" class="menu-trigger" aria-label="Abrir o cerrar menú" aria-expanded="false" aria-controls="main-menu">
+                    <span>MENÚ</span>
+                </button>
+            </div>
+            <div class="header-center">
+                <a href="#hero" class="logo">BEYOND MOTION</a>
+            </div>
+            <div class="header-right">
+                <nav class="nav-minimal">
+                    <a href="#experience">EXPERIENCIA</a>
+                    <a href="#editorial">EDICIÓN</a>
+                    <a href="#final" id="contact" class="nav-cta">CONTACTO</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <nav id="main-menu" class="full-screen-menu" aria-hidden="true">
+        <div class="menu-content">
+            <ul class="menu-links">
+                <li><a href="#experience">EXPERIENCIA</a></li>
+                <li><a href="#editorial">EDICIÓN</a></li>
+                <li><a href="#final">CONTACTO</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-bg">
+                <div class="hero-fallback"></div>
+                <video id="hero-video" autoplay muted loop playsinline>
+                    <source src="assets/video/hero.mp4" type="video/mp4">
+                </video>
+                <div class="hero-overlay">
+                    <div class="hero-fade-bottom"></div>
+                </div>
+            </div>
+
+            <div class="hero-content">
+                <span class="eyebrow">EL FUTURO DEL MOVIMIENTO</span>
+                <h1 class="hero-title">
+                    <span>BEYOND</span>
+                    <span>MOTION</span>
+                </h1>
+                <p class="hero-subtitle">INGENIERÍA MÁS ALLÁ DE LOS LÍMITES. REDEFINIENDO LA VELOCIDAD.</p>
+                <a href="#experience" class="btn-primary">EXPLORAR</a>
+            </div>
+
+            <div class="scroll-indicator">
+                <span class="scroll-text">DESLIZA PARA EXPLORAR</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- Scrollytelling Section -->
+        <section id="experience" class="scrollytelling-container">
+            <div class="canvas-sticky-wrapper">
+                <canvas id="sequence-canvas"></canvas>
+
+                <!-- Narrative Overlays -->
+                <div class="narrative-overlay" id="narrative-1" data-start="0" data-end="0.2">
+                    <div class="text-block">
+                        <span class="scene-number">01 / 04</span>
+                        <h2 class="reveal-text">PRECISIÓN ABSOLUTA</h2>
+                        <p class="reveal-text">PRECISIÓN QUIRÚRGICA.</p>
+                    </div>
+                </div>
+                <div class="narrative-overlay" id="narrative-2" data-start="0.2" data-end="0.45">
+                    <div class="text-block">
+                        <span class="scene-number">02 / 04</span>
+                        <h2 class="reveal-text">POTENCIA PURA</h2>
+                        <p class="reveal-text">POTENCIA SIN CONCESIONES.</p>
+                    </div>
+                </div>
+                <div class="narrative-overlay" id="narrative-3" data-start="0.45" data-end="0.7">
+                    <div class="text-block">
+                        <span class="scene-number">03 / 04</span>
+                        <h2 class="reveal-text">AERODINÁMICA</h2>
+                        <p class="reveal-text">FLUJO DISEÑADO CON PRECISIÓN.</p>
+                    </div>
+                </div>
+                <div class="narrative-overlay" id="narrative-4" data-start="0.7" data-end="1.0">
+                    <div class="text-block">
+                        <span class="scene-number">04 / 04</span>
+                        <h2 class="reveal-text">EL LEGADO</h2>
+                        <p class="reveal-text">DISEÑADO PARA PERDURAR.</p>
+                    </div>
+                </div>
+
+                <!-- Progress Indicator -->
+                <div class="story-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-label" id="progress-label">01 / 04</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Editorial Section -->
+        <section id="editorial" class="section-editorial">
+            <div class="container">
+                <div class="editorial-header">
+                    <div class="editorial-title">
+                        <h2>DISEÑADO<br>SIN LÍMITES</h2>
+                    </div>
+                    <div class="editorial-body">
+                        <p>UNA FUSIÓN ENTRE INDUSTRIALISMO BRUTALISTA Y FLUIDEZ FUTURISTA. NO SEGUIMOS TENDENCIAS; LAS DISEÑAMOS.</p>
+                        <a href="#showcase" class="link-underline">DESCUBRIR LA FILOSOFÍA</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Showcase -->
+        <section id="showcase" class="section-showcase">
+            <div class="showcase-visual">
+                <img src="assets/images/showcase.webp" alt="Prototipo Modelo X-1" class="showcase-img" loading="lazy" decoding="async" width="1920" height="1080">
+                <div class="showcase-overlay"></div>
+                <div class="showcase-content">
+                    <span class="meta">MODELO X-1 // PROTOTIPO</span>
+                    <h2 class="showcase-title">LA CIMA DEL RENDIMIENTO</h2>
+                    <a href="#grid" class="btn-primary">ESPECIFICACIONES</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Editorial Grid -->
+        <section id="grid" class="section-grid">
+            <div class="container">
+                <div class="grid-layout">
+                    <div class="grid-item">
+                        <span class="grid-meta">CHASIS / 2026</span>
+                        <h3>MONOCASCO DE CARBONO</h3>
+                        <div class="grid-visual">
+                            <img src="assets/images/chassis.webp" alt="Chasis monocasco de carbono" class="grid-img" loading="lazy" decoding="async" width="1600" height="900">
+                        </div>
+                        <a href="#final" class="link-underline">VER MÁS</a>
+                    </div>
+                    <div class="grid-item">
+                        <span class="grid-meta">PROPULSIÓN / 2026</span>
+                        <h3>SISTEMA TRIMOTOR</h3>
+                        <div class="grid-visual">
+                            <img src="assets/images/powertrain.webp" alt="Sistema de propulsión trimotor" class="grid-img" loading="lazy" decoding="async" width="1600" height="900">
+                        </div>
+                        <a href="#final" class="link-underline">VER MÁS</a>
+                    </div>
+                    <div class="grid-item">
+                        <span class="grid-meta">INTERIOR / 2026</span>
+                        <h3>CABINA NEURAL</h3>
+                        <div class="grid-visual">
+                            <img src="assets/images/interior.webp" alt="Interior de cabina neural" class="grid-img" loading="lazy" decoding="async" width="1600" height="900">
+                        </div>
+                        <a href="#final" class="link-underline">VER MÁS</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Section -->
+        <section id="final" class="section-final">
+            <div class="final-content">
+                <h2>LISTO PARA<br>EL FUTURO</h2>
+                <p>ÚNETE A LA LISTA EXCLUSIVA para la primera serie de producción.</p>
+                <button type="button" class="btn-primary btn-reserve">RESERVAR</button>
+            </div>
+            <div class="final-bg">
+                <img src="assets/images/final.webp" alt="BEYOND MOTION - imagen final" class="final-img" loading="lazy" decoding="async" width="1920" height="1080">
+                <div class="final-overlay"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">BEYOND MOTION</div>
+                <nav class="footer-nav">
+                    <a href="#experience">EXPERIENCIA</a>
+                    <a href="#editorial">EDICIÓN</a>
+                    <a aria-disabled="true">LEGAL</a>
+                    <a href="#final">CONTACTO</a>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 BEYOND MOTION. TODOS LOS DERECHOS RESERVADOS.</span>
+                <span>DISEÑADO PARA LA EXCELENCIA</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Reservation Modal -->
+    <div id="reservation-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-container">
+            <button type="button" class="modal-close" id="modal-close" aria-label="Cerrar modal">✕</button>
+            <div class="modal-header">
+                <span class="modal-eyebrow">SERIE LIMITADA // 2026</span>
+                <h3 class="modal-title">RESERVA TU MODELO X-1</h3>
+                <p class="modal-subtitle">Acceso exclusivo a la asignación de producción del primer lote mundial.</p>
+            </div>
+            <form id="reservation-form" class="modal-form">
+                <div class="form-group">
+                    <label for="reserve-name">NOMBRE COMPLETO</label>
+                    <input type="text" id="reserve-name" required placeholder="Ej. Alexander Vance" autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <label for="reserve-email">CORREO ELECTRÓNICO</label>
+                    <input type="email" id="reserve-email" required placeholder="tu@correo.com" autocomplete="email">
+                </div>
+                <button type="submit" class="btn-primary form-submit">CONFIRMAR REGISTRO</button>
+            </form>
+            <div id="form-success" class="modal-success" style="display: none;">
+                <div class="success-icon">✓</div>
+                <h4>SOLICITUD REGISTRADA</h4>
+                <p>Tu posición en la lista prioritaria ha sido confirmada. Nuestro equipo de concierge automotriz se pondrá en contacto contigo.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

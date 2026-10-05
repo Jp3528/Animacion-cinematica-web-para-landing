@@ -1,0 +1,20 @@
+{
+  "name": "beyond-motion-cinematic-web",
+  "version": "1.0.0",
+  "description": "High-performance automotive scrollytelling cinematic web experience",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": [
+    "scrollytelling",
+    "canvas-2d",
+    "cinematic",
+    "webp",
+    "vanilla-js",
+    "performance"
+  ],
+  "author": "",
+  "license": "MIT"
+}
