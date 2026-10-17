@@ -1,112 +1,101 @@
-# BEYOND MOTION — Cinematic Scrollytelling Experience
+# BEYOND MOTION | Cinematic Scrollytelling
 
-[![Live Demo](https://img.shields.io/badge/Demo-En_Vivo-FFC000?style=for-the-badge&logo=googlechrome&logoColor=black)](https://jp3528.github.io/Animacion-cinematica-web-para-landing/)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript ES6+](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Canvas 2D](https://img.shields.io/badge/Canvas_2D-60_FPS-FFC000?style=for-the-badge)
-![Zero Dependencies](https://img.shields.io/badge/Dependencies-0-success?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+[Español](#espanol) · [English](#english)
 
-Una experiencia web interactiva de **scrollytelling cinemático** de alto rendimiento, desarrollada desde cero con arquitectura **Vanilla JavaScript**, renderizado sobre **HTML5 Canvas 2D** y principios de diseño brutalista editorial.
+[Demo](https://animacion-cinematica-web-para-landi.vercel.app) · [GitHub](https://github.com/Jp3528/Animacion-cinematica-web-para-landing)
 
-🔗 **Demo en Producción:** [https://jp3528.github.io/Animacion-cinematica-web-para-landing/](https://jp3528.github.io/Animacion-cinematica-web-para-landing/)
+<a id="espanol"></a>
 
----
+## Español
 
-## 📐 Aspectos Técnicos & Arquitectura de Software
+### Descripción
 
-El proyecto fue diseñado con un enfoque estricto en rendimiento, eficiencia de cómputo y fidelidad visual a 60 FPS:
+Experiencia web de presentación automotriz que convierte el desplazamiento en una secuencia visual sobre Canvas 2D. El proyecto explora narrativa interactiva, carga progresiva de imágenes y animación con JavaScript nativo.
 
-### 1. Motor de Renderizado en Canvas 2D
-* **Interpolación Temporal en RAF:** Sincronización continua de fotogramas mediante `requestAnimationFrame`, desacoplando la tasa de refresco del ciclo de eventos del DOM.
-* **Escalado HiDPI Dinámico:** Ajuste automático del buffer del canvas basado en `window.devicePixelRatio` (limitado a 2x para evitar consumo desmedido de memoria en pantallas Ultra Retina) garantizando nitidez sin distorsión subpixel.
-* **Aspect-Ratio Cover:** Algoritmo matemático para encuadrar la imagen a pantalla completa preservando la relación de aspecto original (`16:9`) en cualquier resolución de pantalla.
+### Funcionalidades
 
-### 2. Preloader Inteligente con Priorización Direccional
-* **Ráfaga Inicial (Fast First Paint):** Descarga prioritaria de los primeros 30 fotogramas para garantizar interactividad instantánea sin pantallas de espera.
-* **Pipeline Concurrente:** Procesamiento de cola con concurrencia controlada (`MAX_CONCURRENT_REQUESTS = 12`), descargando la secuencia completa (~8.2 MB) en pocos segundos sobre conexiones de banda ancha modernas.
-* **Priorización según Trayectoria de Scroll:** Reordenamiento dinámico de la cola de descarga en tiempo real en función de la velocidad y dirección del usuario (adelante/atrás).
+- Secuencia de 240 fotogramas WebP sincronizada con el scroll.
+- Precarga con concurrencia limitada y prioridad según la dirección del desplazamiento.
+- Escalado del canvas según densidad de píxeles y tamaño de pantalla.
+- Preferencia de movimiento reducido y pausa del renderizado al ocultar la pestaña.
 
-### 3. Arquitectura Anti-Parpadeo (Zero-Flicker Hold-Last)
-* Si el usuario se desplaza a una velocidad superior al tiempo de respuesta de red, el motor retiene de forma determinista el último fotograma válido (`lastDrawnIndex`) o consulta vecinos inmediatos (±1 o 2 frames).
-* Elimina cualquier salto abrupto o temblor entre fotogramas distantes.
+### Tecnologías
 
-### 4. Accesibilidad y Rendimiento (a11y & Performance)
-* **Prefers-Reduced-Motion:** Detección de la preferencia del sistema operativo para deshabilitar animaciones pesadas y proporcionar un estado estático accesible.
-* **Lifecycle Awareness:** Detección del estado de visibilidad del documento (`visibilitychange`) para pausar el bucle de render cuando la pestaña pasa a segundo plano, optimizando el consumo de CPU y batería.
-* **Cero Dependencias Externas:** 100% código nativo, sin frameworks pesados, minimizando el First Contentful Paint (FCP) y el Total Blocking Time (TBT).
+HTML5 · CSS3 · JavaScript · Canvas 2D · WebP
 
----
+### Ejecutar localmente
 
-## 📊 Métricas de Rendimiento
-
-| Métrica | Valor | Detalle |
-| :--- | :--- | :--- |
-| **Framerate Objetivo** | 60 FPS | Render sincronizado en Canvas 2D |
-| **Peso Total de Secuencia** | ~8.2 MB | 240 fotogramas WebP optimizados |
-| **Peso Promedio por Frame** | ~34 KB | Formato WebP con compresión con pérdidas de alta calidad |
-| **Dependencias NPM** | 0 | Vanilla JS / CSS3 / HTML5 nativo |
-| **Tiempo de Carga Inicial** | < 0.5s | Ráfaga inicial de fotogramas esenciales |
-
----
-
-## 📁 Estructura del Proyecto
-
-```text
-Animacion-cinematica-web-para-landing/
-├── assets/
-│   ├── frames/             # Secuencia de 240 frames (frame_0001.webp - frame_0240.webp)
-│   │   └── frames.json     # Manifiesto de metadatos de la secuencia
-│   ├── images/             # Activos gráficos estáticos (showcase, specs, final)
-│   └── video/              # Video en bucle del Hero (hero.mp4)
-├── css/
-│   └── styles.css          # Estilos brutalistas, variables CSS y layout responsivo
-├── js/
-│   └── main.js             # Motor Cinematic Engine v3.0 (Canvas 2D + Preloader)
-├── index.html              # Documento semántico con metadatos Open Graph y SEO
-├── package.json            # Metadatos del proyecto y scripts de ejecución
-├── .gitignore              # Reglas de exclusión para control de versiones
-└── README.md               # Documentación técnica
-```
-
----
-
-## 🚀 Entorno de Desarrollo Local
-
-Para clonar e iniciar el entorno localmente:
+**Requisitos:** Python 3 para el servidor estático del ejemplo, o Node.js y npm para `npm start`.
 
 ```bash
-# 1. Clonar el repositorio
 git clone https://github.com/Jp3528/Animacion-cinematica-web-para-landing.git
-
-# 2. Entrar al directorio
 cd Animacion-cinematica-web-para-landing
-
-# 3. Iniciar el servidor local
-npm start
 ```
 
-Alternativamente, puede servirse con cualquier servidor estático local:
 ```bash
-# Con Python
-python -m http.server 8080
-
-# O mediante la extensión Live Server de VS Code
+python -m http.server 8080 --bind 127.0.0.1
 ```
 
+Abre `http://127.0.0.1:8080`. Como alternativa, `npm start` inicia un servidor mediante `npx serve` y muestra su URL en la terminal.
+
+### Estructura
+
+| Ruta                               | Contenido                                |
+| ---------------------------------- | ---------------------------------------- |
+| [`index.html`](index.html)         | Documento y secciones de la experiencia. |
+| [`js/main.js`](js/main.js)         | Motor de scroll, precarga y renderizado. |
+| [`css/styles.css`](css/styles.css) | Diseño visual y estilos adaptables.      |
+| [`assets/`](assets/)               | Fotogramas, imágenes y video.            |
+
+### Alcance
+
+Demostración frontend sin backend ni servicios de negocio. El rendimiento depende del dispositivo, la red y el tamaño de los recursos; el repositorio no incorpora una suite automatizada de benchmarks.
+
 ---
 
-## 🛠️ Tecnologías Empleadas
+<a id="english"></a>
 
-* **Lenguaje:** JavaScript ES6+ (Clases, Async/Await, Web APIs)
-* **Renderizado:** HTML5 Canvas API (2D Context)
-* **Estilos:** CSS3 Moderno (Custom Properties, CSS Grid, Flexbox, Backdrop Filter)
-* **Formatos Multimedia:** WebP (Frames de animación e imágenes), MP4 (H.264 Hero video)
-* **Tipografías:** Barlow Condensed & Inter (Google Fonts)
+## English
 
----
+### Overview
 
-## 📄 Licencia
+An automotive showcase that turns scrolling into a visual sequence rendered with Canvas 2D. The project explores interactive storytelling, progressive image loading and animation with vanilla JavaScript.
 
-Este proyecto está bajo la Licencia **MIT**. Consulta el archivo de licencia para más detalles.
+### Features
+
+- A 240-frame WebP sequence synchronized with scrolling.
+- Bounded concurrent preloading prioritized by scroll direction.
+- Canvas scaling based on pixel density and viewport size.
+- Reduced-motion support and rendering paused when the tab is hidden.
+
+### Technology
+
+HTML5 · CSS3 · JavaScript · Canvas 2D · WebP
+
+### Run locally
+
+**Requirements:** Python 3 for the example static server, or Node.js and npm for `npm start`.
+
+```bash
+git clone https://github.com/Jp3528/Animacion-cinematica-web-para-landing.git
+cd Animacion-cinematica-web-para-landing
+```
+
+```bash
+python -m http.server 8080 --bind 127.0.0.1
+```
+
+Open `http://127.0.0.1:8080`. Alternatively, `npm start` launches a server through `npx serve` and prints its URL in the terminal.
+
+### Structure
+
+| Path                               | Contents                                    |
+| ---------------------------------- | ------------------------------------------- |
+| [`index.html`](index.html)         | Page markup and experience sections.        |
+| [`js/main.js`](js/main.js)         | Scrolling, preloading and rendering engine. |
+| [`css/styles.css`](css/styles.css) | Visual design and responsive styles.        |
+| [`assets/`](assets/)               | Frames, images and video.                   |
+
+### Scope
+
+A frontend demonstration without a backend or business services. Performance depends on the device, network and asset sizes; the repository does not include an automated benchmark suite.
